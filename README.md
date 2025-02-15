@@ -14,4 +14,7 @@ PublicDependencyModuleNames.AddRange(new string[] {
 ```
 
 ## Proof of Concept
-![alt text](ue_log.png)
+### UE Output logs
+![alt text](images/ue_log.png)
+### Python script logs
+![alt text](images/python_log.png)

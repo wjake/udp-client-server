@@ -66,5 +66,17 @@ void AMysticServer::OnDataReceived(const TSharedPtr<FArrayReader, ESPMode::Threa
 	FString ReceivedData = FString(ANSI_TO_TCHAR(reinterpret_cast<const char*>(Data->GetData())));
     UE_LOG(LogTemp, Warning, TEXT("Received data: %s from %s"), *ReceivedData, *Endpoint.ToString());
 
-    // make calls to the other assets in-game
+    // do work with the received data
+    // ...
+
+    // Prepare response
+    FString ResponseData = TEXT("Data received & processed");
+    TArray<uint8> ResponseBytes;
+    FTCHARToUTF8 Convert(*ResponseData);
+    ResponseBytes.Append((uint8*)Convert.Get(), Convert.Length());
+
+    // Send the response to the mystic client
+    int32 BytesSent;
+    UdpSocket->SendTo(ResponseBytes.GetData(), ResponseBytes.Num(), BytesSent, *Endpoint.ToInternetAddr());
+    UE_LOG(LogTemp, Warning, TEXT("Sent data: %s to %s"), *ResponseData, *Endpoint.ToString());
 }
