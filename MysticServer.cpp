@@ -64,7 +64,7 @@ void AMysticServer::OnDataReceived(const TSharedPtr<FArrayReader, ESPMode::Threa
 {
     // Handle received gesture data
 	FString ReceivedData = FString(ANSI_TO_TCHAR(reinterpret_cast<const char*>(Data->GetData())));
-    UE_LOG(LogTemp, Log, TEXT("Received data: %s from %s"), *ReceivedData, *Endpoint.ToString());
+    UE_LOG(LogTemp, Warning, TEXT("Received data: %s from %s"), *ReceivedData, *Endpoint.ToString());
 
     // make calls to the other assets in-game
 }
