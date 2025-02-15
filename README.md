@@ -6,11 +6,41 @@ This repo shows example code for inter-communcation between a Python client and 
 Both examples using local IP address & port `65432`.
 
 ## Dependencies
-`Networking` & `Sockets` UE modules.
+`Networking` & `Sockets` UE modules and `socket` Python library.
+## Usage
+### Unreal Engine (C++)
+1. Include Unreal Engine dependencies to .buid.cs file
 ```c++
 PublicDependencyModuleNames.AddRange(new string[] {
     ..., "Networking", "Sockets"
 });
+```
+2. Add `MysticServer.h` & `MysticServer.cpp` into project
+3. Add AActor `MysticServer` class to the level
+### Python
+1. Import `socket` library dependency
+```Python
+import socket
+```
+2. Define socket IP address & port number
+```Python
+server_address = ('127.0.0.1', 65432)
+```
+3. Create connection to UDP socket
+```Python
+udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+```
+4. Send data
+```Python
+udp_socket.sendto('data', server_address)
+```
+5. Recieve response
+```Python
+data, server = udp_socket.recvfrom(4096)
+```
+6. Close socket connection
+```Python
+udp_socket.close()
 ```
 
 ## Proof of Concept
