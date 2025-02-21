@@ -31,12 +31,6 @@ void AMysticGesturesCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 }
 
-void AMysticGesturesCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
-{
-    StopReceiver();
-    Super::EndPlay(EndPlayReason);
-}
-
 void AMysticGesturesCharacter::InitializeReceiver(int32 Port)
 {
     // Create and configure the UDP socket
