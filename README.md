@@ -15,8 +15,11 @@ PublicDependencyModuleNames.AddRange(new string[] {
     ..., "Networking", "Sockets"
 });
 ```
-2. Add `MysticServer.h` & `MysticServer.cpp` into project
-3. Add AActor `MysticServer` class to the level
+2. Add `MysticGestuesCharacter.h` & `MysticGestuesCharacter.cpp` into project.
+2. Parent playable character with `MysticGestuesCharacter` class
+3. Implement reciever calls and event in character blueprint
+![alt text](images/blueprint.png)
+
 ### Python
 1. Import `socket` library dependency
 ```Python
